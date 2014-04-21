@@ -75,3 +75,5 @@ end
 
 gem "simple-navigation"
 gem "simple-navigation-bootstrap"
+
+gem 'globalize', '~> 4.0.1'
