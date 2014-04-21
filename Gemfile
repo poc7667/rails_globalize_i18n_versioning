@@ -77,3 +77,5 @@ gem "simple-navigation"
 gem "simple-navigation-bootstrap"
 
 gem 'globalize', '~> 4.0.1'
+
+gem 'globalize-versioning', '~> 0.1.0.alpha.1'

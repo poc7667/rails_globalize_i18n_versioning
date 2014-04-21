@@ -1,3 +1,3 @@
 class Article < ActiveRecord::Base
-    translates :name, :content
+    translates :name, :content, :versioning => { :gem => :paper_trail, :options => { :on => [ :update ] } }
 end
