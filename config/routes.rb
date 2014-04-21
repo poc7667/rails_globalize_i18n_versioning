@@ -1,7 +1,12 @@
 MultiLang::Application.routes.draw do
-  resources :articles
-
-  resources :users
+  scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
+    resources :articles
+    resources :users
+    root to: 'articles#index'
+  end
+  match '*path', to: redirect("/#{I18n.default_locale}/%{path}"), constraints: lambda { |req| !req.path.starts_with? "/#{I18n.default_locale}/" }, :via => [:get]
+  match '', to: redirect("/#{I18n.default_locale}"), :via => [:get]
+  match '', to: redirect("/#{I18n.default_locale}"), :via => [:get]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
